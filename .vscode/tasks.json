@@ -1,0 +1,92 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "type": "shell",
+            "label": "C/C++: g++ build active file",
+            "command": "/usr/bin/g++",
+            "args": [
+                "-g",
+                "${file}",
+                "-o",
+                "${workspaceFolder}/TCPDumpParser"
+            ],
+            "options": {
+                "cwd": "/usr/bin"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": "build"
+        },
+        {
+            "type": "shell",
+            "label": "C/C++: g++ tests",
+            "command": "/usr/bin/g++",
+            "args": [
+                "-g",
+                "${file}",
+                "-o",
+                "${workspaceFolder}/TCPDumpParserTests"
+            ],
+            "options": {
+                "cwd": "/usr/bin"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": "test"
+        },
+        {
+            "type": "shell",
+            "label": "g++ build",
+            "command": "/usr/bin/g++",
+            "args": [
+                "-g",
+                "${workspaceFolder}/src/tasks/*.cpp",
+                "${workspaceFolder}/src/menu/*.cpp",
+                "${workspaceFolder}/src/model/*.cpp",
+                "${workspaceFolder}/src/*.cpp",
+                "-o",
+                "${workspaceFolder}/TCPDumpParser",
+                "-pthread",
+                "-lsqlite3",
+                "-lcurl",
+                "-lstdc++fs"
+            ],
+            "options": {
+                "cwd": "/usr/bin"
+            }
+        },
+        {
+            "type": "shell",
+            "label": "g++ build test",
+            "command": "/usr/bin/g++",
+            "args": [
+                "-g",
+                "${workspaceFolder}/src/tasks/*.cpp",
+                "${workspaceFolder}/src/menu/*.cpp",
+                "${workspaceFolder}/src/model/*.cpp",
+                "${workspaceFolder}/tests/*.cpp",
+                "-o",
+                "${workspaceFolder}/TCPDumpParserTests",
+                "-pthread",
+                "-lsqlite3",
+                "-lcurl",
+                "-lstdc++fs",
+                "-lgtest",
+                //g++ -Wall -g -pthread test1.cpp -lgtest_main  -lgtest -lpthread 
+            ],
+            "options": {
+                "cwd": "/usr/bin"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": {
+                "kind": "test",
+                "isDefault": true
+            }
+        }
+    ]
+}
